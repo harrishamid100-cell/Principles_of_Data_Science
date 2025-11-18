@@ -1,1 +1,21 @@
-
+﻿Column1,Column2
+a),"data.fillna(data.mean(numeric_only=True).sum(), inplace=True)"
+,data
+b),"data1[""Mileage""]= data1[""Mileage""].str.replace('kmpl', '').str.replace('km/kg', '')
+data1['Engine']=data1[""Engine""].str.replace('CC','')
+data1['Power']=data1[""Power""].str.replace('bhp','')
+data1['New_Price']=data1[""New_Price""].str.replace(' Lakh','')
+data1.fillna(data1.mean(numeric_only=True).sum(), inplace=True)
+data1"
+c),"data2 = pd.get_dummies(data1, columns=['Fuel_Type', ""Transmission""])
+bool_cols = data2.select_dtypes(include='bool').columns
+data2[bool_cols] = data2[bool_cols].astype(int)
+data3 = data2
+data3"
+d),"data3['Year'] = 2025 - data3['Year']
+data3"
+e),display(data3.describe())
+,"selected_data = data3[['Name', 'Year', 'Price', 'Kilometers_Driven']]
+display(selected_data.head())"
+,"filtered_data = selected_data[selected_data['Year'] < 10]
+display(filtered_data.head())"
